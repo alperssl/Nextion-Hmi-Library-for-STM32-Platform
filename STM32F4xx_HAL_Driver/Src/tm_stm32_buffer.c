@@ -423,7 +423,7 @@ int32_t TM_BUFFER_FindElement(TM_BUFFER_t* Buffer, uint8_t Element) {
 
 int32_t TM_BUFFER_FindString(TM_BUFFER_t* Buffer, char* endFlag) {
 	uint32_t Num, Out, retval = 0;
-	char tempBuff[32] = {0};
+	char tempBuff[32] = {};
 
 	/* Check buffer structure */
 	if (Buffer == NULL) {
@@ -449,13 +449,18 @@ int32_t TM_BUFFER_FindString(TM_BUFFER_t* Buffer, char* endFlag) {
 		retval++;
 	}
 
-	if(strstr((const char*) tempBuff, (const char*) endFlag) > 0){
-		/* String found */
-		return retval;
-	}else{
-		/* String is not in buffer */
-		return -1;
+	int strpos(char *haystack, char *needle)
+	{
+	   char *p = strstr(haystack, needle);
+	   if (p)
+	      return p - haystack;
+	   return -1;
 	}
+
+	int res = strpos(tempBuff, endFlag) + strlen(endFlag);
+
+	return res;
+
 }
 
 int32_t TM_BUFFER_Find(TM_BUFFER_t* Buffer, const void* Data, uint32_t Size) {
