@@ -147,7 +147,7 @@ void sendCommand(const char *cmd)
  *
  */
 bool recvRetCommandFinished(void){
-	char temp[8] = {0};
+	char temp[8] = {};
 	char endFlag[4] = {NEX_RET_CMD_FINISHED, 0xFF, 0xFF, 0xFF};
 
 	//setTimeout(timeout);
