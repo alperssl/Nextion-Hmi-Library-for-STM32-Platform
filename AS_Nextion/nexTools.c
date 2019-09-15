@@ -97,6 +97,40 @@ bool nex_goToPage(NexObject obj){
 
 }
 
+void nex_click(NexObject obj){
+	char cmd[50] = {};
+	strcat(cmd, "click ");
+	strcat(cmd, obj.name);
+	strcat(cmd, ",1");
+	sendCommand(cmd);
+
+	char cmd2[50] = {};
+	strcat(cmd2, "click ");
+	strcat(cmd2, obj.name);
+	strcat(cmd2, ",0");
+	sendCommand(cmd2);
+}
+
+void nex_hide(NexObject obj){
+	char cmd[50] = {};
+	strcat(cmd, "vis ");
+	strcat(cmd, obj.name);
+	strcat(cmd, ",0");
+	sendCommand(cmd);
+}
+
+void nex_show(NexObject obj){
+	char cmd[50] = {};
+	strcat(cmd, "vis ");
+	strcat(cmd, obj.name);
+	strcat(cmd, ",1");
+	sendCommand(cmd);
+}
+
+void nex_reset(void){
+	sendCommand("rest");
+}
+
 /*bool nex_addValue(NexObject obj, uint8_t ch, uint8_t number){
 
 	char buf[15] = {0};

@@ -45,6 +45,14 @@ bool nex_setValue(NexObject obj, uint32_t number);
 
 bool nex_goToPage(NexObject obj);
 
+void nex_click(NexObject obj);
+
+void nex_hide(NexObject obj);
+
+void nex_show(NexObject obj);
+
+void nex_reset(void);
+
 //bool nex_addValue(NexObject obj, uint8_t ch, uint8_t number);
 
 
