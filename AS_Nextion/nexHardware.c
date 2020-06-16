@@ -99,10 +99,7 @@ uint16_t recvRetString(char *buffer, uint16_t len, uint32_t timeout)
 	}
 
 
-	while (TM_USART_BufferCount(nexUsart) < (strlen(strflag) + strlen(endflag)) ) {
-
-	}
-	HAL_Delay(10);
+	while (TM_USART_FindString(nexUsart, endflag) <= 0) {}
 
 	if(TM_USART_Gets_withStrandEndFlag(nexUsart, tempBuff, sizeof(tempBuff), strflag, endflag) > 0){
 		ret = strlen(tempBuff);
