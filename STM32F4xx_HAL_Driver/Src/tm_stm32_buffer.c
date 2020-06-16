@@ -681,7 +681,7 @@ uint32_t TM_BUFFER_ReadStringWithStartandEndFlag(TM_BUFFER_t* Buffer, char* buff
 	{	// Fill Temp Buffer
 
 		/* If available buffer size is more than 0 characters */
-		while (i < (endflagFL)) {
+		while (i < (endflagFL+sizeof(endFlag)-1))) {
 			/* We have available data */
 			if (TM_BUFFER_Read(Buffer, &ch, 1) == 0) {
 				break;
